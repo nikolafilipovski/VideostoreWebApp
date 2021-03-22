@@ -1,0 +1,23 @@
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.deps.json
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.runtimeconfig.json
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.runtimeconfig.dev.json
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.AssemblyInfoInputs.cache
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.AssemblyInfo.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\Git Videostore\Videostore\VideostoreWebApp\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.genruntimeconfig.cache
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.deps.json
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.runtimeconfig.json
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.runtimeconfig.dev.json
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\bin\Debug\netcoreapp3.1\Videostore.Repository.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.csprojAssemblyReference.cache
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.AssemblyInfoInputs.cache
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.AssemblyInfo.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\Videostore\Videostore.Repository\obj\Debug\netcoreapp3.1\Videostore.Repository.genruntimeconfig.cache
