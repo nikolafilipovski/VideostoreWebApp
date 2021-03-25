@@ -1,5 +1,44 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<Videostore.Entities.Movie>
+
+
+
+<h1>Movies</h1>
+
+<div class="row my-5">
+    <div class="col-sm-12 col-md-12">
+        <a asp-action="Create" class="btn btn-success btn-block">Create</a>
+    </div>
+</div>
+
+<h4>All Movies</h4>
+
+<div asp-validation-summary="ModelOnly" class="text-danger">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Title</th>
+                <th>Runtime</th>
+                <th>Genre</th>
+                <th>Release date</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => movie.title)</td>
+                    <td>@Html.DisplayFor(modelItem => movie.runTime)</td>
+                    <td>@Html.DisplayFor(modelItem => movie.genre)</td>
+                    <td>@Html.DisplayFor(modelItem => movie.releaseDate)</td>
+                    <td>@Html.DisplayFor(modelItem => movie.rating)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@movie.movieID" class="btn btn-secondary btn-block">Edit</a>
+                        <a asp-action="Details" asp-route-id="@movie.movieID" class="btn btn-info btn-block">Details</a>
+                        <a asp-action="Delete" asp-route-id="@movie.movieID" class="btn btn-danger btn-block">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Videostore.Data\Videostore.Data.csproj" />
+    <ProjectReference Include="..\Videostore.Service\Videostore.Service.csproj" />
   </ItemGroup>
 
 </Project>

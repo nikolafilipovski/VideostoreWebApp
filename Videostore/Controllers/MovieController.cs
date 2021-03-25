@@ -4,11 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Videostore.Entities;
+using Videostore.Models;
+using Videostore.Service.Interfaces;
 
 namespace Videostore.Controllers
 {
     public class MovieController : Controller
     {
+        private readonly IMovieService _movieService;
+        private readonly IActorService _actorService;
+        private readonly IDirectorService _directorService;
+
+        public MovieController(IMovieService movieService, IActorService actorService, IDirectorService directorService)
+        {
+            _movieService = movieService;
+            _actorService = actorService;
+            _directorService = directorService;
+        }
+
         // GET: MovieController
         public ActionResult Index()
         {
@@ -22,6 +36,7 @@ namespace Videostore.Controllers
         }
 
         // GET: MovieController/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -30,16 +45,19 @@ namespace Videostore.Controllers
         // POST: MovieController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(MovieViewModel model)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var movie = new Movie();
+            movie.title = model.title;
+            movie.runTime = model.runTime;
+            movie.genre = model.runTime;
+            movie.rating = model.rating;
+            movie.description = model.description;
+            movie.releaseDate = model.releaseDate;
+
+            _movieService.Add(movie);
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: MovieController/Edit/5

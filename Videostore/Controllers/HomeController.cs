@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Videostore.Models;
+using Videostore.Service.Interfaces;
 
 namespace Videostore.Controllers
 {

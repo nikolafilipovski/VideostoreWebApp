@@ -11,9 +11,14 @@ namespace Videostore.Entities
         public int directorID { get; set; }
 
         [StringLength(50)]
-        public string name { get; set; }
-        public string nationality { get; set; }
-        public DateTime birthday { get; set; }
+        [Display(Name = "Name")]
+        public string directorName { get; set; }
+
+        [Display(Name = "Nationality")]
+        public string directorNationality { get; set; }
+
+        [Display(Name = "Born")]
+        public DateTime directorBirthday { get; set; }
         public ICollection<Movie> Movies { get; set; }
         public ICollection<TVshow> TVshows { get; set; }
     }

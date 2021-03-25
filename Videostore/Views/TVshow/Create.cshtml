@@ -1,4 +1,4 @@
-﻿@model Videostore.Entities.TVshow
+﻿@model Videostore.Models.TVshowViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -42,26 +42,14 @@
                 <input asp-for="description" class="form-control" />
                 <span asp-validation-for="description" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="actorID" class="control-label"></label>
                 <select asp-for="actorID" class ="form-control" asp-items="ViewBag.actorID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="buyID" class="control-label"></label>
-                <select asp-for="buyID" class ="form-control" asp-items="ViewBag.buyID"></select>
-            </div>
-            <div class="form-group">
                 <label asp-for="directorID" class="control-label"></label>
                 <select asp-for="directorID" class ="form-control" asp-items="ViewBag.directorID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="rentID" class="control-label"></label>
-                <select asp-for="rentID" class ="form-control" asp-items="ViewBag.rentID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="watchlistID" class="control-label"></label>
-                <select asp-for="watchlistID" class ="form-control" asp-items="ViewBag.watchlistID"></select>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

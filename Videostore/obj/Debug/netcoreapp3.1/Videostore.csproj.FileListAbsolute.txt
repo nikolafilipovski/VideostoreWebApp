@@ -368,3 +368,15 @@ C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debu
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\TVshow\Create.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\TVshow\Edit.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\TVshow\Delete.cshtml.g.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\Videostore.Repository.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\Videostore.Service.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\Videostore.Service.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\Videostore.Repository.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll

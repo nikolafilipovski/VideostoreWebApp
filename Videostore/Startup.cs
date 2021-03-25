@@ -12,6 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Videostore.Data;
+using Videostore.Repository;
+using Videostore.Repository.Interfaces;
+using Videostore.Service;
+using Videostore.Service.Interfaces;
 
 namespace Videostore
 {
@@ -34,6 +38,23 @@ namespace Videostore
                 .AddEntityFrameworkStores<DataContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<IMovieRepository, MovieRepository>();
+            services.AddTransient<IActorRepository, ActorRepository>();
+            services.AddTransient<IBuyRepository, BuyRepository>();
+            services.AddTransient<IDirectorRepository, DirectorRepository>();
+            services.AddTransient<IRentRepository, RentRepository>();
+            services.AddTransient<ITVshowRepository, TVshowRepository>();
+            services.AddTransient<IWatchlistRepository, WatchlistRepository>();
+
+            services.AddTransient<IMovieService, MovieService>();
+            services.AddTransient<IActorService, ActorService>();
+            services.AddTransient<IBuyService, BuyService>();
+            services.AddTransient<IDirectorService, DirectorService>();
+            services.AddTransient<IRentService, RentService>();
+            services.AddTransient<ITVshowService, TVshowService>();
+            services.AddTransient<IWatchlistService, WatchlistService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

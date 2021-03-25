@@ -226,14 +226,14 @@ namespace Videostore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("birthday")
+                    b.Property<DateTime>("actorBirthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("name")
+                    b.Property<string>("actorName")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<string>("nationality")
+                    b.Property<string>("actorNationality")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("actorID");
@@ -266,14 +266,14 @@ namespace Videostore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("birthday")
+                    b.Property<DateTime>("directorBirthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("name")
+                    b.Property<string>("directorName")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<string>("nationality")
+                    b.Property<string>("directorNationality")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("directorID");
