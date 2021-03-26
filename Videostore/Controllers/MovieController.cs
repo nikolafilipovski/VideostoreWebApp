@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,13 @@ namespace Videostore.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var actors = _actorService.GetActors();
+            var directors = _directorService.GetDirectors();
+            var dropdowns = _movieService.fillDropdowns(actors, directors);
+
+            ViewBag.actorList = dropdowns.Item1;
+            ViewBag.directorList = dropdowns.Item2;
+
             return View();
         }
 

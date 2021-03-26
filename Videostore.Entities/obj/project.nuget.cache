@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KaJlpdeFfi9fyiZwVY8sdBbynypi8Av3xzJaJ8Vzn7IWTH5PazZuKavP+KRl5Ne1yrZuWscVoKSxbJIS1+x25Q==",
+  "dgSpecHash": "jgjxy0AUUS0v8/wyjD9YWmtccLgFnwMoTKuv/qMkiqjt+RD7O/HlcImdbukWBy3nPBddcnYqwzb/o4ondUkrPw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matej & Marko\\Desktop\\Code Academy\\VideostoreWebApp\\Videostore.Entities\\Videostore.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matej & Marko\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.13\\microsoft.aspnetcore.cryptography.internal.3.1.13.nupkg.sha512",
     "C:\\Users\\Matej & Marko\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.13\\microsoft.aspnetcore.cryptography.keyderivation.3.1.13.nupkg.sha512",
+    "C:\\Users\\Matej & Marko\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.13\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.13.nupkg.sha512",
     "C:\\Users\\Matej & Marko\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.13\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.13.nupkg.sha512",
     "C:\\Users\\Matej & Marko\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Matej & Marko\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",

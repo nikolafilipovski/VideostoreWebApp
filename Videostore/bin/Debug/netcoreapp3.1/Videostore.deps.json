@@ -31,7 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Videostore/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.12",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.UI": "3.1.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
@@ -391,14 +391,14 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.12": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.13": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "3.1.13"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {
-            "assemblyVersion": "3.1.12.0",
-            "fileVersion": "3.100.1221.7012"
+            "assemblyVersion": "3.1.13.0",
+            "fileVersion": "3.100.1321.11713"
           }
         },
         "compile": {
@@ -2413,6 +2413,7 @@
       },
       "Videostore.Data/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
           "Videostore.Entities": "1.0.0"
@@ -2426,6 +2427,7 @@
       },
       "Videostore.Entities/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13"
         },
@@ -2438,6 +2440,7 @@
       },
       "Videostore.Repository/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
           "Videostore.Data": "1.0.0"
@@ -2452,6 +2455,7 @@
       "Videostore.Service/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.Mvc": "5.2.7",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
           "Videostore.Repository": "1.0.0"
@@ -4084,12 +4088,12 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/3.1.13",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.3.1.13.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.12": {
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AUWlI/qxOnDBiGncD8UtKjVRG7Hin+3Pxs6evaR34QewvC362aQSwNpn1KAQPfovE9gOAP0UZX/g3r2RPz54eg==",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/3.1.12",
-      "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.12.nupkg.sha512"
+      "sha512": "sha512-xA08x/7gpxIHnucLHuzPVXdbcinTydGhkBtVFnAfJWWAxDzhp8UiGQL63GQVGMGccOa47+92rfc8hJDrw4aTuQ==",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/3.1.13",
+      "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.13.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",

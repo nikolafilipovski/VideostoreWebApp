@@ -64,10 +64,10 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.12": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.12"
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
@@ -2765,6 +2765,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
           "Videostore.Entities": "1.0.0"
@@ -2780,6 +2781,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13"
         },
@@ -2794,6 +2796,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
           "Videostore.Data": "1.0.0"
@@ -2810,6 +2813,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.AspNet.Mvc": "5.2.7",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.13",
           "Videostore.Repository": "1.0.0"
@@ -2909,10 +2913,10 @@
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.12": {
-      "sha512": "AUWlI/qxOnDBiGncD8UtKjVRG7Hin+3Pxs6evaR34QewvC362aQSwNpn1KAQPfovE9gOAP0UZX/g3r2RPz54eg==",
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.13": {
+      "sha512": "xA08x/7gpxIHnucLHuzPVXdbcinTydGhkBtVFnAfJWWAxDzhp8UiGQL63GQVGMGccOa47+92rfc8hJDrw4aTuQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/3.1.12",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2920,7 +2924,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.12.nupkg.sha512",
+        "microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.diagnostics.entityframeworkcore.nuspec"
       ]
     },
@@ -9024,7 +9028,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.12",
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.13",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.13",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.13",
@@ -9082,7 +9086,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[3.1.12, )"
+            "version": "[3.1.13, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
