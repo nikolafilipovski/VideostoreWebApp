@@ -13,9 +13,9 @@ $("#directorID").change(function () {
 $("#addActor").click(function () {
 
     var data = {
-        actorName: $("#actorName").val(),
-        actorNationality: $("#actorNationality").val(),
-        actorBirthday: $("#actorBirthday").val()
+        Name: $("#actorName").val(),
+        Nationality: $("#actorNationality").val(),
+        Birthday: $("#actorBirthday").val()
     };
 
     $.ajax({
@@ -36,9 +36,9 @@ $("#addActor").click(function () {
 $("#addDirector").click(function () {
 
     var data = {
-        directorName: $("#directorName").val(),
-        directorNationality: $("#directorNationality").val(),
-        directorBirthday: $("#directorBirthday").val()
+        Name: $("#directorName").val(),
+        Nationality: $("#directorNationality").val(),
+        Birthday: $("#directorBirthday").val()
     };
 
     $.ajax({
