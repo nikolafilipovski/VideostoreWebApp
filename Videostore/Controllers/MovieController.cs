@@ -33,7 +33,8 @@ namespace Videostore.Controllers
         // GET: MovieController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var movie = _movieService.GetMovieByID(id);
+            return View(movie);
         }
 
         // GET: MovieController/Create
@@ -69,30 +70,34 @@ namespace Videostore.Controllers
         }
 
         // GET: MovieController/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
+            var actors = _actorService.GetActors();
+            var directors = _directorService.GetDirectors();
+            var dropdowns = _movieService.fillDropdowns(actors, directors);
+
+            ViewBag.actorList = dropdowns.Item1;
+            ViewBag.directorList = dropdowns.Item2;
+
             return View();
+            
         }
 
         // POST: MovieController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Movie movie)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _movieService.Edit(movie);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: MovieController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var movie = _movieService.GetMovieByID(id);
+            return View(movie);
         }
 
         // POST: MovieController/Delete/5
@@ -100,14 +105,10 @@ namespace Videostore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var movie = _movieService.GetMovieByID(id);
+            _movieService.Delete(movie);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
