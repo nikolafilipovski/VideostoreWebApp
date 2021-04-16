@@ -10,8 +10,8 @@ using Videostore.Data;
 namespace Videostore.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210324233411_nameChange")]
-    partial class nameChange
+    [Migration("20210416015941_second")]
+    partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -293,7 +293,7 @@ namespace Videostore.Data.Migrations
                     b.Property<int>("actorID")
                         .HasColumnType("int");
 
-                    b.Property<int>("buyID")
+                    b.Property<int?>("buyID")
                         .HasColumnType("int");
 
                     b.Property<string>("description")
@@ -313,7 +313,7 @@ namespace Videostore.Data.Migrations
                     b.Property<string>("releaseDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("rentID")
+                    b.Property<int?>("rentID")
                         .HasColumnType("int");
 
                     b.Property<string>("runTime")
@@ -323,7 +323,7 @@ namespace Videostore.Data.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("watchlistID")
+                    b.Property<int?>("watchlistID")
                         .HasColumnType("int");
 
                     b.HasKey("movieID");
@@ -369,7 +369,7 @@ namespace Videostore.Data.Migrations
                     b.Property<int>("actorID")
                         .HasColumnType("int");
 
-                    b.Property<int>("buyID")
+                    b.Property<int?>("buyID")
                         .HasColumnType("int");
 
                     b.Property<string>("description")
@@ -389,7 +389,7 @@ namespace Videostore.Data.Migrations
                     b.Property<string>("releaseDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("rentID")
+                    b.Property<int?>("rentID")
                         .HasColumnType("int");
 
                     b.Property<string>("runTime")
@@ -399,7 +399,7 @@ namespace Videostore.Data.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("watchlistID")
+                    b.Property<int?>("watchlistID")
                         .HasColumnType("int");
 
                     b.HasKey("TVshowID");
@@ -500,11 +500,9 @@ namespace Videostore.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Videostore.Entities.Buy", "buy")
+                    b.HasOne("Videostore.Entities.Buy", null)
                         .WithMany("Movies")
-                        .HasForeignKey("buyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("buyID");
 
                     b.HasOne("Videostore.Entities.Director", "director")
                         .WithMany("Movies")
@@ -512,17 +510,13 @@ namespace Videostore.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Videostore.Entities.Rent", "rent")
+                    b.HasOne("Videostore.Entities.Rent", null)
                         .WithMany("Movies")
-                        .HasForeignKey("rentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("rentID");
 
-                    b.HasOne("Videostore.Entities.Watchlist", "watchlist")
+                    b.HasOne("Videostore.Entities.Watchlist", null)
                         .WithMany("Movies")
-                        .HasForeignKey("watchlistID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("watchlistID");
                 });
 
             modelBuilder.Entity("Videostore.Entities.TVshow", b =>
@@ -533,11 +527,9 @@ namespace Videostore.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Videostore.Entities.Buy", "buy")
+                    b.HasOne("Videostore.Entities.Buy", null)
                         .WithMany("TVshows")
-                        .HasForeignKey("buyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("buyID");
 
                     b.HasOne("Videostore.Entities.Director", "director")
                         .WithMany("TVshows")
@@ -545,17 +537,13 @@ namespace Videostore.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Videostore.Entities.Rent", "rent")
+                    b.HasOne("Videostore.Entities.Rent", null)
                         .WithMany("TVshows")
-                        .HasForeignKey("rentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("rentID");
 
-                    b.HasOne("Videostore.Entities.Watchlist", "watchlist")
+                    b.HasOne("Videostore.Entities.Watchlist", null)
                         .WithMany("TVshows")
-                        .HasForeignKey("watchlistID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("watchlistID");
                 });
 #pragma warning restore 612, 618
         }

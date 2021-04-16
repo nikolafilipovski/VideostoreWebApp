@@ -27,7 +27,8 @@ namespace Videostore.Controllers
         // GET: MovieController
         public ActionResult Index()
         {
-            return View();
+            var movies = _movieService.GetMovies();
+            return View(movies);
         }
 
         // GET: MovieController/Details/5
@@ -41,12 +42,13 @@ namespace Videostore.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var actors = _actorService.GetActors();
-            var directors = _directorService.GetDirectors();
-            var dropdowns = _movieService.fillDropdowns(actors, directors);
+            //var actors = _actorService.GetActors();
+            //var dropdownActors = _actorService.dropdownActors(actors);
+            //ViewBag.actorList = dropdownActors;
 
-            ViewBag.actorList = dropdowns.Item1;
-            ViewBag.directorList = dropdowns.Item2;
+            //var directors = _directorService.GetDirectors();
+            //var dropdownDirectors = _directorService.dropdownDirectors(directors);
+            //ViewBag.directorList = dropdownDirectors;
 
             return View();
         }
@@ -54,15 +56,15 @@ namespace Videostore.Controllers
         // POST: MovieController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MovieViewModel model)
+        public ActionResult Create(Movie movie)
         {
-            var movie = new Movie();
-            movie.title = model.title;
-            movie.runTime = model.runTime;
-            movie.genre = model.runTime;
-            movie.rating = model.rating;
-            movie.description = model.description;
-            movie.releaseDate = model.releaseDate;
+            //var movie = new Movie();
+            //movie.title = model.title;
+            //movie.runTime = model.runTime;
+            //movie.genre = model.runTime;
+            //movie.rating = model.rating;
+            //movie.description = model.description;
+            //movie.releaseDate = model.releaseDate;
 
             _movieService.Add(movie);
 
@@ -74,11 +76,12 @@ namespace Videostore.Controllers
         public ActionResult Edit(int id)
         {
             var actors = _actorService.GetActors();
-            var directors = _directorService.GetDirectors();
-            var dropdowns = _movieService.fillDropdowns(actors, directors);
+            var dropdownActors = _actorService.dropdownActors(actors);
+            ViewBag.actorList = dropdownActors;
 
-            ViewBag.actorList = dropdowns.Item1;
-            ViewBag.directorList = dropdowns.Item2;
+            var directors = _directorService.GetDirectors();
+            var dropdownDirectors = _directorService.dropdownDirectors(directors);
+            ViewBag.directorList = dropdownDirectors;
 
             return View();
             

@@ -13,9 +13,9 @@ namespace Videostore.Data.Migrations
                 {
                     actorID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(maxLength: 50, nullable: true),
-                    nationality = table.Column<string>(nullable: true),
-                    birthday = table.Column<DateTime>(nullable: false)
+                    actorName = table.Column<string>(maxLength: 50, nullable: true),
+                    actorNationality = table.Column<string>(nullable: true),
+                    actorBirthday = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,9 +81,9 @@ namespace Videostore.Data.Migrations
                 {
                     directorID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(maxLength: 50, nullable: true),
-                    nationality = table.Column<string>(nullable: true),
-                    birthday = table.Column<DateTime>(nullable: false)
+                    directorName = table.Column<string>(maxLength: 50, nullable: true),
+                    directorNationality = table.Column<string>(nullable: true),
+                    directorBirthday = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

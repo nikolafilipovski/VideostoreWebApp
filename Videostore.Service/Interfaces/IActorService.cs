@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Videostore.Entities;
@@ -12,5 +13,6 @@ namespace Videostore.Service.Interfaces
         void Delete(Actor actor);
         Actor GetActorByID(int ID);
         IEnumerable<Actor> GetActors();
+        IEnumerable<SelectListItem> dropdownActors(IEnumerable<Actor> actors);
     }
 }

@@ -8,10 +8,11 @@ namespace Videostore.Entities
     public class Director
     {
         [Key]
+        [Display(Name = "Name")]
         public int directorID { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Name")]
+        [Display(Name = "Director name")]
         public string directorName { get; set; }
 
         [Display(Name = "Nationality")]

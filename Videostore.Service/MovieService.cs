@@ -44,39 +44,5 @@ namespace Videostore.Service
             return result;
         }
 
-        #region Dropdowns
-
-        public Tuple<List<SelectListItem>, List<SelectListItem>> fillDropdowns(IEnumerable<Actor> actors, IEnumerable<Director> directors)
-        {
-            List<SelectListItem> Actors = new List<SelectListItem>()
-            {
-                new SelectListItem() { Value = "0", Text = "Select Actor..." }
-            };
-
-            foreach (var actor in actors)
-            {
-                Actors.Add(new SelectListItem() { Value = actor.actorID.ToString(), Text = actor.actorName });
-            }
-
-            List<SelectListItem> Directors = new List<SelectListItem>()
-            {
-                new SelectListItem() { Value = "0", Text = "Select Director..." }
-            };
-
-            foreach (var director in directors)
-            {
-                Actors.Add(new SelectListItem() { Value = director.directorID.ToString(), Text = director.directorName });
-            }
-
-            return Tuple.Create(Actors, Directors);
-
-        }
-
-        #endregion
-
-
-
-
-
     }
 }

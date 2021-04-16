@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Web.Mvc;
 using Videostore.Entities;
 using Videostore.Repository.Interfaces;
 using Videostore.Service.Interfaces;
@@ -44,5 +44,20 @@ namespace Videostore.Service
             return result;
         }
 
+        #region Helper methods
+        public IEnumerable<SelectListItem> dropdownActors(IEnumerable<Actor> actors)
+        {
+            List<SelectListItem> Actors = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value = "0", Text = "Select Actor..."}
+            };
+
+            foreach (var item in actors)
+            {
+                Actors.Add(new SelectListItem() { Value = item.actorID.ToString(), Text = item.actorName });
+            }
+            return Actors;
+        }
+        #endregion
     }
 }

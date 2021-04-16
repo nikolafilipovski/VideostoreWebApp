@@ -1,4 +1,4 @@
-﻿@model Videostore.Models.MovieViewModel
+﻿@model Videostore.Entities.Movie
 
 
 
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="genre" class="control-label"></label>
-                <input asp-for="genre" class="form-control">
+                <input asp-for="genre" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="rating" class="control-label"></label>
@@ -34,88 +34,10 @@
                 <label asp-for="description" class="control-label"></label>
                 <input asp-for="description" class="form-control" />
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label asp-for="actorID" class="control-label"></label>
-                        <select asp-for="actorID" class="form-control" asp-items="ViewBag.actorList"></select>
-                        <a class="btn btn-sm btn-outline-success actorBtn" data-toggle="modal" data-target="#actorModal">Add New Actor</a>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label asp-for="directorID" class="control-label"></label>
-                        <select asp-for="directorID" class="form-control" asp-items="ViewBag.directorList"></select>
-                        <a class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#directorModal">Add New Director</a>
-                    </div>
-                </div>
-            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary btn-block" />
             </div>
         </form>
-    </div>
-
-    <div class="modal" id="actorModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Actor</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" asp-for="actorName" class="form-control" placeholder="Enter name ..." />
-                    </div>
-                    <div class="form-group">
-                        <label>Nationality</label>
-                        <input type="text" asp-for="actorNationality" class="form-control" placeholder="Enter nationality ..." />
-                    </div>
-                    <div class="form-group">
-                        <label>Birthday</label>
-                        <input type="text" asp-for="actorBirthday" class="form-control" placeholder="Enter day of birth ..." />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addActor">Save Actor</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="directorModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Director</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" asp-for="directorName" class="form-control" placeholder="Enter name ..." />
-                    </div>
-                    <div class="form-group">
-                        <label>Nationality</label>
-                        <input type="text" asp-for="directorNationality" class="form-control" placeholder="Enter nationality ..." />
-                    </div>
-                    <div class="form-group">
-                        <label>Birthday</label>
-                        <input type="text" asp-for="directorBirthday" class="form-control" placeholder="Enter day of birth ..." />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addDirector">Save Director</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
     </div>
 
 </div>
@@ -125,5 +47,5 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/movie/movie.js"></script>
+    <script src="~/js/movie/Movie.js"></script>
 }

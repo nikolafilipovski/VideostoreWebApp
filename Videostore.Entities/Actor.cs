@@ -8,10 +8,11 @@ namespace Videostore.Entities
     public class Actor
     {
         [Key]
+        [Display(Name = "Actor")]
         public int actorID { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Name")]
+        [Display(Name = "Actor name")]
         public string actorName { get; set; }
 
         [Display(Name = "Nationality")]
