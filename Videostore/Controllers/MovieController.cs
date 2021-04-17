@@ -75,13 +75,13 @@ namespace Videostore.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var actors = _actorService.GetActors();
-            var dropdownActors = _actorService.dropdownActors(actors);
-            ViewBag.actorList = dropdownActors;
+            //var actors = _actorService.GetActors();
+            //var dropdownActors = _actorService.dropdownActors(actors);
+            //ViewBag.actorList = dropdownActors;
 
-            var directors = _directorService.GetDirectors();
-            var dropdownDirectors = _directorService.dropdownDirectors(directors);
-            ViewBag.directorList = dropdownDirectors;
+            //var directors = _directorService.GetDirectors();
+            //var dropdownDirectors = _directorService.dropdownDirectors(directors);
+            //ViewBag.directorList = dropdownDirectors;
 
             return View();
             
@@ -106,9 +106,8 @@ namespace Videostore.Controllers
         // POST: MovieController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Movie movie)
         {
-            var movie = _movieService.GetMovieByID(id);
             _movieService.Delete(movie);
 
             return RedirectToAction(nameof(Index));
