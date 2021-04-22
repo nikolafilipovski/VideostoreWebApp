@@ -13,6 +13,6 @@ namespace Videostore.Service.Interfaces
         void Delete(Movie movie);
         Movie GetMovieByID(int ID);
         IEnumerable<Movie> GetMovies();
-
+        IEnumerable<SelectListItem> StudiosDropdown(IEnumerable<Studio> studios);
     }
 }

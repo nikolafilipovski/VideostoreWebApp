@@ -1,44 +1,54 @@
 ﻿@model IEnumerable<Videostore.Entities.Movie>
 
 
-
-<h1>Movies</h1>
-
-<div class="row my-5">
+<div class="row text-center">
     <div class="col-sm-12 col-md-12">
-        <a asp-action="Create" class="btn btn-success btn-block">Create</a>
+        <h2>All Movies</h2>
     </div>
 </div>
 
-<h4>All Movies</h4>
+<hr />
 
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<table class="table table-bordered">
-    <thead class="thead-dark">
-        <tr>
-            <th>Title</th>
-            <th>Runtime</th>
-            <th>Genre</th>
-            <th>Release date</th>
-            <th>Rating</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var movie in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => movie.title)</td>
-                <td>@Html.DisplayFor(modelItem => movie.runTime)</td>
-                <td>@Html.DisplayFor(modelItem => movie.genre)</td>
-                <td>@Html.DisplayFor(modelItem => movie.releaseDate)</td>
-                <td>@Html.DisplayFor(modelItem => movie.rating)</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@movie.movieID" class="btn btn-secondary btn-block">Edit</a>
-                    <a asp-action="Details" asp-route-id="@movie.movieID" class="btn btn-info btn-block">Details</a>
-                    <a asp-action="Delete" asp-route-id="@movie.movieID" class="btn btn-danger btn-block">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row mb-5">
+    <div class="col-sm-12 col-md-6 offset-3">
+        <a asp-action="Create" class="btn btn-success btn-block">
+            <i class="fas fa-plus-square"></i> Create
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Runtime</th>
+                    <th>Genre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model)
+                {
+                    <tr>
+                        <td> @Html.DisplayFor(modelItem => movie.title) </td>
+                        <td> @Html.DisplayFor(modelItem => movie.runTime) </td>
+                        <td> @Html.DisplayFor(modelItem => movie.genre) </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@movie.movieID" class="btn btn-info">
+                                <i class="fas fa-info"></i> Details
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@movie.movieID" class="btn btn-secondary">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@movie.movieID" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

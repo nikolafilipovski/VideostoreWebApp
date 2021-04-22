@@ -40,20 +40,16 @@ namespace Videostore
             services.AddRazorPages();
 
             services.AddTransient<IMovieRepository, MovieRepository>();
-            services.AddTransient<IActorRepository, ActorRepository>();
             services.AddTransient<IBuyRepository, BuyRepository>();
-            services.AddTransient<IDirectorRepository, DirectorRepository>();
+            services.AddTransient<IStudioRepository, StudioRepository>();
             services.AddTransient<IRentRepository, RentRepository>();
-            services.AddTransient<ITVshowRepository, TVshowRepository>();
             services.AddTransient<IWatchlistRepository, WatchlistRepository>();
 
             services.AddTransient<IMovieService, MovieService>();
-            services.AddTransient<IActorService, ActorService>();
             services.AddTransient<IBuyService, BuyService>();
-            services.AddTransient<IDirectorService, DirectorService>();
             services.AddTransient<IRentService, RentService>();
-            services.AddTransient<ITVshowService, TVshowService>();
             services.AddTransient<IWatchlistService, WatchlistService>();
+            services.AddTransient<IStudioService, StudioService>();
 
         }
 

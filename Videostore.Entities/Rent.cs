@@ -10,8 +10,6 @@ namespace Videostore.Entities
         [Key]
         public int rentID { get; set; }
         public int movieID { get; set; }
-        public int TVshowID { get; set; }
         public ICollection<Movie> Movies { get; set; }
-        public ICollection<TVshow> TVshows { get; set; }
     }
 }

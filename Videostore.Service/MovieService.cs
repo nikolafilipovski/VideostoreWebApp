@@ -44,5 +44,22 @@ namespace Videostore.Service
             return result;
         }
 
+        #region Helper Methods
+
+        public IEnumerable<SelectListItem> StudiosDropdown(IEnumerable<Studio> studios)
+        {
+            List<SelectListItem> Studios = new List<SelectListItem>()
+            {
+                new SelectListItem(){ Value = "0", Text = "Select Studio..."}
+            };
+
+            foreach (var item in studios)
+            {
+                Studios.Add(new SelectListItem() { Value = item.studioID.ToString(), Text = item.studioName, Selected = false });
+            }
+            return Studios;
+        }
+
+        #endregion
     }
 }

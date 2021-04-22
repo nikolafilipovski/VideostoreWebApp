@@ -14,14 +14,12 @@ namespace Videostore.Controllers
     public class MovieController : Controller
     {
         private readonly IMovieService _movieService;
-        private readonly IActorService _actorService;
-        private readonly IDirectorService _directorService;
+        private readonly IStudioService _studioService;
 
-        public MovieController(IMovieService movieService, IActorService actorService, IDirectorService directorService)
+        public MovieController(IMovieService movieService, IStudioService studioService)
         {
             _movieService = movieService;
-            _actorService = actorService;
-            _directorService = directorService;
+            _studioService = studioService;
         }
 
         // GET: MovieController
@@ -42,13 +40,9 @@ namespace Videostore.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //var actors = _actorService.GetActors();
-            //var dropdownActors = _actorService.dropdownActors(actors);
-            //ViewBag.actorList = dropdownActors;
-
-            //var directors = _directorService.GetDirectors();
-            //var dropdownDirectors = _directorService.dropdownDirectors(directors);
-            //ViewBag.directorList = dropdownDirectors;
+            var studios = _studioService.GetStudios();
+            var dropdown = _movieService.StudiosDropdown(studios);
+            ViewBag.studiosList = dropdown;
 
             return View();
         }
@@ -61,10 +55,9 @@ namespace Videostore.Controllers
             //var movie = new Movie();
             //movie.title = model.title;
             //movie.runTime = model.runTime;
-            //movie.genre = model.runTime;
+            //movie.genre = model.genre;
             //movie.rating = model.rating;
             //movie.description = model.description;
-            //movie.releaseDate = model.releaseDate;
 
             _movieService.Add(movie);
 
@@ -75,16 +68,12 @@ namespace Videostore.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            //var actors = _actorService.GetActors();
-            //var dropdownActors = _actorService.dropdownActors(actors);
-            //ViewBag.actorList = dropdownActors;
+            var movie = _movieService.GetMovieByID(id);
+            var studios = _studioService.GetStudios();
+            var dropdown = _movieService.StudiosDropdown(studios);
+            ViewBag.studiosList = dropdown;
 
-            //var directors = _directorService.GetDirectors();
-            //var dropdownDirectors = _directorService.dropdownDirectors(directors);
-            //ViewBag.directorList = dropdownDirectors;
-
-            return View();
-            
+            return View(movie);
         }
 
         // POST: MovieController/Edit/5

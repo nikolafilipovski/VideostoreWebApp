@@ -1,0 +1,12 @@
+﻿#searchBtn {
+    position: absolute;
+    bottom: 0rem;
+    left: 61.3rem;
+    padding: 0.4rem 3rem;
+}
+
+#mGlass {
+    position: absolute;
+    top: 0rem;
+    left: 1rem;
+}

@@ -10,8 +10,8 @@ using Videostore.Data;
 namespace Videostore.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210416015941_second")]
-    partial class second
+    [Migration("20210418030704_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -221,37 +221,12 @@ namespace Videostore.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Videostore.Entities.Actor", b =>
-                {
-                    b.Property<int>("actorID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("actorBirthday")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("actorName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("actorNationality")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("actorID");
-
-                    b.ToTable("Actors");
-                });
-
             modelBuilder.Entity("Videostore.Entities.Buy", b =>
                 {
                     b.Property<int>("buyID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("TVshowID")
-                        .HasColumnType("int");
 
                     b.Property<int>("movieID")
                         .HasColumnType("int");
@@ -261,28 +236,6 @@ namespace Videostore.Data.Migrations
                     b.ToTable("Buys");
                 });
 
-            modelBuilder.Entity("Videostore.Entities.Director", b =>
-                {
-                    b.Property<int>("directorID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("directorBirthday")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("directorName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("directorNationality")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("directorID");
-
-                    b.ToTable("Directors");
-                });
-
             modelBuilder.Entity("Videostore.Entities.Movie", b =>
                 {
                     b.Property<int>("movieID")
@@ -290,18 +243,12 @@ namespace Videostore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("actorID")
-                        .HasColumnType("int");
-
                     b.Property<int?>("buyID")
                         .HasColumnType("int");
 
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
-
-                    b.Property<int>("directorID")
-                        .HasColumnType("int");
 
                     b.Property<string>("genre")
                         .HasColumnType("nvarchar(20)")
@@ -313,10 +260,19 @@ namespace Videostore.Data.Migrations
                     b.Property<string>("releaseDate")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("releaseDateID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("rentID")
                         .HasColumnType("int");
 
                     b.Property<string>("runTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("studioID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("studioName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("title")
@@ -328,17 +284,32 @@ namespace Videostore.Data.Migrations
 
                     b.HasKey("movieID");
 
-                    b.HasIndex("actorID");
-
                     b.HasIndex("buyID");
 
-                    b.HasIndex("directorID");
+                    b.HasIndex("releaseDateID");
 
                     b.HasIndex("rentID");
+
+                    b.HasIndex("studioID");
 
                     b.HasIndex("watchlistID");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Videostore.Entities.ReleaseDate", b =>
+                {
+                    b.Property<int>("releaseDateID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("releaseDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("releaseDateID");
+
+                    b.ToTable("ReleaseDates");
                 });
 
             modelBuilder.Entity("Videostore.Entities.Rent", b =>
@@ -348,9 +319,6 @@ namespace Videostore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("TVshowID")
-                        .HasColumnType("int");
-
                     b.Property<int>("movieID")
                         .HasColumnType("int");
 
@@ -359,62 +327,36 @@ namespace Videostore.Data.Migrations
                     b.ToTable("Rents");
                 });
 
-            modelBuilder.Entity("Videostore.Entities.TVshow", b =>
+            modelBuilder.Entity("Videostore.Entities.Studio", b =>
                 {
-                    b.Property<int>("TVshowID")
+                    b.Property<int>("studioID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("actorID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("buyID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("description")
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
-
-                    b.Property<int>("directorID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("genre")
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
-
-                    b.Property<double>("rating")
-                        .HasColumnType("float");
-
-                    b.Property<string>("releaseDate")
+                    b.Property<string>("studioName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("rentID")
-                        .HasColumnType("int");
+                    b.HasKey("studioID");
 
-                    b.Property<string>("runTime")
-                        .HasColumnType("nvarchar(max)");
+                    b.ToTable("Studios");
 
-                    b.Property<string>("title")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<int?>("watchlistID")
-                        .HasColumnType("int");
-
-                    b.HasKey("TVshowID");
-
-                    b.HasIndex("actorID");
-
-                    b.HasIndex("buyID");
-
-                    b.HasIndex("directorID");
-
-                    b.HasIndex("rentID");
-
-                    b.HasIndex("watchlistID");
-
-                    b.ToTable("TVshows");
+                    b.HasData(
+                        new
+                        {
+                            studioID = 1,
+                            studioName = "Warner Brothers"
+                        },
+                        new
+                        {
+                            studioID = 2,
+                            studioName = "Universal"
+                        },
+                        new
+                        {
+                            studioID = 3,
+                            studioName = "Disney"
+                        });
                 });
 
             modelBuilder.Entity("Videostore.Entities.Watchlist", b =>
@@ -423,9 +365,6 @@ namespace Videostore.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("TVshowID")
-                        .HasColumnType("int");
 
                     b.Property<int>("buyID")
                         .HasColumnType("int");
@@ -494,19 +433,13 @@ namespace Videostore.Data.Migrations
 
             modelBuilder.Entity("Videostore.Entities.Movie", b =>
                 {
-                    b.HasOne("Videostore.Entities.Actor", "actor")
-                        .WithMany("Movies")
-                        .HasForeignKey("actorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Videostore.Entities.Buy", null)
                         .WithMany("Movies")
                         .HasForeignKey("buyID");
 
-                    b.HasOne("Videostore.Entities.Director", "director")
-                        .WithMany("Movies")
-                        .HasForeignKey("directorID")
+                    b.HasOne("Videostore.Entities.ReleaseDate", "releaseDate1")
+                        .WithMany()
+                        .HasForeignKey("releaseDateID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -514,35 +447,14 @@ namespace Videostore.Data.Migrations
                         .WithMany("Movies")
                         .HasForeignKey("rentID");
 
+                    b.HasOne("Videostore.Entities.Studio", "studio")
+                        .WithMany()
+                        .HasForeignKey("studioID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Videostore.Entities.Watchlist", null)
                         .WithMany("Movies")
-                        .HasForeignKey("watchlistID");
-                });
-
-            modelBuilder.Entity("Videostore.Entities.TVshow", b =>
-                {
-                    b.HasOne("Videostore.Entities.Actor", "actor")
-                        .WithMany("TVshows")
-                        .HasForeignKey("actorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Videostore.Entities.Buy", null)
-                        .WithMany("TVshows")
-                        .HasForeignKey("buyID");
-
-                    b.HasOne("Videostore.Entities.Director", "director")
-                        .WithMany("TVshows")
-                        .HasForeignKey("directorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Videostore.Entities.Rent", null)
-                        .WithMany("TVshows")
-                        .HasForeignKey("rentID");
-
-                    b.HasOne("Videostore.Entities.Watchlist", null)
-                        .WithMany("TVshows")
                         .HasForeignKey("watchlistID");
                 });
 #pragma warning restore 612, 618

@@ -8,42 +8,42 @@ using Videostore.Repository.Interfaces;
 
 namespace Videostore.Repository
 {
-    public class TVshowRepository : ITVshowRepository
+    public class StudioRepository : IStudioRepository
     {
         private readonly DataContext _context;
 
-        public TVshowRepository(DataContext context)
+        public StudioRepository(DataContext context)
         {
             _context = context;
         }
 
-        public void Add(TVshow tvshow)
+        public void Add(Studio studio)
         {
-            _context.TVshows.Add(tvshow);
+            _context.Studios.Add(studio);
             _context.SaveChanges();
         }
 
-        public void Delete(TVshow tvshow)
+        public void Delete(Studio studio)
         {
-            _context.TVshows.Remove(tvshow);
+            _context.Studios.Remove(studio);
             _context.SaveChanges();
         }
 
-        public void Edit(TVshow tvshow)
+        public void Edit(Studio studio)
         {
-            _context.TVshows.Update(tvshow);
+            _context.Studios.Update(studio);
             _context.SaveChanges();
         }
 
-        public TVshow GetTVshowByID(int ID)
+        public Studio GetStudioByID(int ID)
         {
-            var result = _context.TVshows.FirstOrDefault(x => x.TVshowID == ID);
+            var result = _context.Studios.FirstOrDefault(x => x.studioID == ID);
             return result;
         }
 
-        public IEnumerable<TVshow> GetTVshows()
+        public IEnumerable<Studio> GetStudios()
         {
-            var result = _context.TVshows.AsEnumerable();
+            var result = _context.Studios.AsEnumerable();
             return result;
         }
     }

@@ -8,21 +8,6 @@ namespace Videostore.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Actors",
-                columns: table => new
-                {
-                    actorID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    actorName = table.Column<string>(maxLength: 50, nullable: true),
-                    actorNationality = table.Column<string>(nullable: true),
-                    actorBirthday = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Actors", x => x.actorID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -67,8 +52,7 @@ namespace Videostore.Data.Migrations
                 {
                     buyID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    movieID = table.Column<int>(nullable: false),
-                    TVshowID = table.Column<int>(nullable: false)
+                    movieID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,18 +60,16 @@ namespace Videostore.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Directors",
+                name: "ReleaseDates",
                 columns: table => new
                 {
-                    directorID = table.Column<int>(nullable: false)
+                    releaseDateID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    directorName = table.Column<string>(maxLength: 50, nullable: true),
-                    directorNationality = table.Column<string>(nullable: true),
-                    directorBirthday = table.Column<DateTime>(nullable: false)
+                    releaseDate = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Directors", x => x.directorID);
+                    table.PrimaryKey("PK_ReleaseDates", x => x.releaseDateID);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,12 +78,24 @@ namespace Videostore.Data.Migrations
                 {
                     rentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    movieID = table.Column<int>(nullable: false),
-                    TVshowID = table.Column<int>(nullable: false)
+                    movieID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rents", x => x.rentID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Studios",
+                columns: table => new
+                {
+                    studioID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    studioName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Studios", x => x.studioID);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,7 +105,6 @@ namespace Videostore.Data.Migrations
                     watchlistID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     movieID = table.Column<int>(nullable: false),
-                    TVshowID = table.Column<int>(nullable: false),
                     buyID = table.Column<int>(nullable: false),
                     rentID = table.Column<int>(nullable: false)
                 },
@@ -236,101 +229,64 @@ namespace Videostore.Data.Migrations
                     runTime = table.Column<string>(nullable: true),
                     genre = table.Column<string>(maxLength: 20, nullable: true),
                     rating = table.Column<double>(nullable: false),
-                    releaseDate = table.Column<string>(nullable: true),
                     description = table.Column<string>(maxLength: 500, nullable: true),
-                    actorID = table.Column<int>(nullable: false),
-                    buyID = table.Column<int>(nullable: false),
-                    directorID = table.Column<int>(nullable: false),
-                    rentID = table.Column<int>(nullable: false),
-                    watchlistID = table.Column<int>(nullable: false)
+                    releaseDate = table.Column<string>(nullable: true),
+                    releaseDateID = table.Column<int>(nullable: false),
+                    studioName = table.Column<string>(nullable: true),
+                    studioID = table.Column<int>(nullable: false),
+                    buyID = table.Column<int>(nullable: true),
+                    rentID = table.Column<int>(nullable: true),
+                    watchlistID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Movies", x => x.movieID);
                     table.ForeignKey(
-                        name: "FK_Movies_Actors_actorID",
-                        column: x => x.actorID,
-                        principalTable: "Actors",
-                        principalColumn: "actorID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Movies_Buys_buyID",
                         column: x => x.buyID,
                         principalTable: "Buys",
                         principalColumn: "buyID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Movies_Directors_directorID",
-                        column: x => x.directorID,
-                        principalTable: "Directors",
-                        principalColumn: "directorID",
+                        name: "FK_Movies_ReleaseDates_releaseDateID",
+                        column: x => x.releaseDateID,
+                        principalTable: "ReleaseDates",
+                        principalColumn: "releaseDateID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Movies_Rents_rentID",
                         column: x => x.rentID,
                         principalTable: "Rents",
                         principalColumn: "rentID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Movies_Studios_studioID",
+                        column: x => x.studioID,
+                        principalTable: "Studios",
+                        principalColumn: "studioID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Movies_Watchlists_watchlistID",
                         column: x => x.watchlistID,
                         principalTable: "Watchlists",
                         principalColumn: "watchlistID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "TVshows",
-                columns: table => new
-                {
-                    TVshowID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    title = table.Column<string>(maxLength: 100, nullable: true),
-                    runTime = table.Column<string>(nullable: true),
-                    genre = table.Column<string>(maxLength: 20, nullable: true),
-                    rating = table.Column<double>(nullable: false),
-                    releaseDate = table.Column<string>(nullable: true),
-                    description = table.Column<string>(maxLength: 500, nullable: true),
-                    actorID = table.Column<int>(nullable: false),
-                    buyID = table.Column<int>(nullable: false),
-                    directorID = table.Column<int>(nullable: false),
-                    rentID = table.Column<int>(nullable: false),
-                    watchlistID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TVshows", x => x.TVshowID);
-                    table.ForeignKey(
-                        name: "FK_TVshows_Actors_actorID",
-                        column: x => x.actorID,
-                        principalTable: "Actors",
-                        principalColumn: "actorID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TVshows_Buys_buyID",
-                        column: x => x.buyID,
-                        principalTable: "Buys",
-                        principalColumn: "buyID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TVshows_Directors_directorID",
-                        column: x => x.directorID,
-                        principalTable: "Directors",
-                        principalColumn: "directorID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TVshows_Rents_rentID",
-                        column: x => x.rentID,
-                        principalTable: "Rents",
-                        principalColumn: "rentID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TVshows_Watchlists_watchlistID",
-                        column: x => x.watchlistID,
-                        principalTable: "Watchlists",
-                        principalColumn: "watchlistID",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.InsertData(
+                table: "Studios",
+                columns: new[] { "studioID", "studioName" },
+                values: new object[] { 1, "Warner Brothers" });
+
+            migrationBuilder.InsertData(
+                table: "Studios",
+                columns: new[] { "studioID", "studioName" },
+                values: new object[] { 2, "Universal" });
+
+            migrationBuilder.InsertData(
+                table: "Studios",
+                columns: new[] { "studioID", "studioName" },
+                values: new object[] { 3, "Disney" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -372,19 +328,14 @@ namespace Videostore.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_actorID",
-                table: "Movies",
-                column: "actorID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Movies_buyID",
                 table: "Movies",
                 column: "buyID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_directorID",
+                name: "IX_Movies_releaseDateID",
                 table: "Movies",
-                column: "directorID");
+                column: "releaseDateID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Movies_rentID",
@@ -392,33 +343,13 @@ namespace Videostore.Data.Migrations
                 column: "rentID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Movies_studioID",
+                table: "Movies",
+                column: "studioID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Movies_watchlistID",
                 table: "Movies",
-                column: "watchlistID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TVshows_actorID",
-                table: "TVshows",
-                column: "actorID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TVshows_buyID",
-                table: "TVshows",
-                column: "buyID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TVshows_directorID",
-                table: "TVshows",
-                column: "directorID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TVshows_rentID",
-                table: "TVshows",
-                column: "rentID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TVshows_watchlistID",
-                table: "TVshows",
                 column: "watchlistID");
         }
 
@@ -443,25 +374,22 @@ namespace Videostore.Data.Migrations
                 name: "Movies");
 
             migrationBuilder.DropTable(
-                name: "TVshows");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Actors");
-
-            migrationBuilder.DropTable(
                 name: "Buys");
 
             migrationBuilder.DropTable(
-                name: "Directors");
+                name: "ReleaseDates");
 
             migrationBuilder.DropTable(
                 name: "Rents");
+
+            migrationBuilder.DropTable(
+                name: "Studios");
 
             migrationBuilder.DropTable(
                 name: "Watchlists");

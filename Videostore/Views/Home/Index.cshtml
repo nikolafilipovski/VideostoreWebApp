@@ -1,8 +1,54 @@
-﻿@model Videostore.Models.HomeViewModel
+﻿@model IEnumerable<Videostore.Entities.Movie>
 
 @{ ViewData["Title"] = "Videostore"; }
 
 
+
+<!-- Search section -->
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <form asp-action="Search">
+            <div class="search-main">
+                <button class="btn search-btn-icon" id="mGlass">
+                    <i class="fas fa-search" id="icon"></i>
+                </button>
+                <input type="text" class="form-control search-box-style" id="movieSearch" />
+                <button class="btn btn-success search-btn" id="searchBtn">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Movies Section -->
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <h2 class="text-center mt-5">All Movies</h2>
+
+    </div>
+</div>
+
+@foreach (var movie in Model)
+{
+        <div class="card h-100 mx-auto" style="max-width: 350px;">
+            <div class="image">
+                <img src="" alt="" class="card-img-top" style="" />
+            </div>
+            <div class="card-body">
+                <div class="text-center d-flex flex-column justify-content-center" style="height:120px">
+                    <h5 class="card-title w-100"><a class="text-dark" href="">@Html.DisplayFor(modelItem => movie.title)</a></h5>
+                    <h6 class=""><em>by <a class="text-dark" href="">@Html.DisplayFor(modelItem => movie.studioName)</a></em></h6>
+                </div>
+                <hr />
+                <p class="card-text">Rating: @Html.DisplayFor(modelItem => movie.rating)</p>
+                <p class="card-text">Genre: @Html.DisplayFor(modelItem => movie.genre)</p>
+                <p class="card-text">Description: @Html.DisplayFor(modelItem => movie.description)</p>
+                    <button class="btn btn-secondary btn-block"><i class="fas fa-plus-circle"></i> Add to Watchlist</button>
+                    <a class="btn btn-secondary btn-block text-light text-decoration-none" asp-area="Watchlist" asp-page="/Account/Login"><i class="fas fa-plus-circle"></i> Add to Watchlist</a>
+
+            </div>
+
+        </div>
+}
 
 
 
@@ -12,5 +58,5 @@
 
 
 @section Scripts {
-    <script src="~/js/site.js"></script>
-} 
+    <link href="~/css/homePageStyle.css" rel="stylesheet" />
+}

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Videostore.Service\Videostore.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Studio\" />
+  </ItemGroup>
+
 </Project>
