@@ -22,32 +22,30 @@
 <!-- Movies Section -->
 <div class="row">
     <div class="col-sm-12 col-md-12">
-        <h2 class="text-center mt-5">All Movies</h2>
-
+        <h2 class="text-center my-5">All Movies</h2>
     </div>
 </div>
 
+<hr />
+
 @foreach (var movie in Model)
 {
-        <div class="card h-100 mx-auto" style="max-width: 350px;">
-            <div class="image">
-                <img src="" alt="" class="card-img-top" style="" />
-            </div>
-            <div class="card-body">
-                <div class="text-center d-flex flex-column justify-content-center" style="height:120px">
-                    <h5 class="card-title w-100"><a class="text-dark" href="">@Html.DisplayFor(modelItem => movie.title)</a></h5>
-                    <h6 class=""><em>by <a class="text-dark" href="">@Html.DisplayFor(modelItem => movie.studioName)</a></em></h6>
-                </div>
-                <hr />
-                <p class="card-text">Rating: @Html.DisplayFor(modelItem => movie.rating)</p>
-                <p class="card-text">Genre: @Html.DisplayFor(modelItem => movie.genre)</p>
-                <p class="card-text">Description: @Html.DisplayFor(modelItem => movie.description)</p>
-                    <button class="btn btn-secondary btn-block"><i class="fas fa-plus-circle"></i> Add to Watchlist</button>
-                    <a class="btn btn-secondary btn-block text-light text-decoration-none" asp-area="Watchlist" asp-page="/Account/Login"><i class="fas fa-plus-circle"></i> Add to Watchlist</a>
-
-            </div>
-
-        </div>
+     <div class="card h-100 mx-auto" style="max-width: 350px;">
+         <div class="image">
+             <img src="" alt="" class="card-img-top" style="" />
+         </div>
+         <div class="card-body">
+             <div class="text-center d-flex flex-column justify-content-center" style="height:120px">
+                 <h3 class="card-title w-100"><a class="text-dark" href="https://www.imdb.com">@Html.DisplayFor(modelItem => movie.title)</a></h3>
+             </div>
+             <hr />
+             <p class="card-text"><em>Rating:</em> @Html.DisplayFor(modelItem => movie.rating)</p>
+             <p class="card-text"><em>Genre:</em> @Html.DisplayFor(modelItem => movie.genre)</p>
+             <p class="card-text"><em>Description:</em> @Html.DisplayFor(modelItem => movie.description)</p>
+             <button class="btn btn-secondary btn-block"><i class="fas fa-plus-circle"></i> Add to Watchlist</button>
+         </div>
+     
+     </div>
 }
 
 
