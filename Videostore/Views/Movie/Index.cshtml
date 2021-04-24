@@ -35,16 +35,20 @@
                         <td> @Html.DisplayFor(modelItem => movie.title) </td>
                         <td> @Html.DisplayFor(modelItem => movie.runTime) </td>
                         <td> @Html.DisplayFor(modelItem => movie.genre) </td>
-                        <td>
-                            <a asp-action="Details" asp-route-id="@movie.movieID" class="btn btn-info">
-                                <i class="fas fa-info"></i> Details
-                            </a>
-                            <a asp-action="Edit" asp-route-id="@movie.movieID" class="btn btn-secondary">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@movie.movieID" class="btn btn-danger">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
+                        <td class="text-center">
+                            @*@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                            {*@
+                                <a asp-action="Details" asp-route-id="@movie.movieID" class="btn btn-info">
+                                    <i class="fas fa-info"></i> Details
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@movie.movieID" class="btn btn-secondary">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+
+                                <a asp-action="Delete" asp-route-id="@movie.movieID" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            @*}*@
                         </td>
                     </tr>
                 }

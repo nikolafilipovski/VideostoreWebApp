@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Studio\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="wwwroot\nlog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

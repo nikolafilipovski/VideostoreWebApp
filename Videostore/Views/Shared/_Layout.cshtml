@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/font-awesome/css/all.css"  />
+    <link href="~/css/errorValidation.css" rel="stylesheet" />
     <link href="~/css/homePageStyle.css" rel="stylesheet" />
 </head>
 <body>
@@ -24,15 +25,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Studio" asp-action="Index">Studios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ReleaseDate" asp-action="Index">Release Date</a>
-                        </li>
+                        @*@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                        {*@
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Studio" asp-action="Index">Studios</a>
+                            </li>
+                        @*}*@
                     </ul>
                 </div>
             </div>
