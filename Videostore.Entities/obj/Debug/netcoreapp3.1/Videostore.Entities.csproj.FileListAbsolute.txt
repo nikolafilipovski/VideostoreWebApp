@@ -27,6 +27,7 @@ C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\bin\Debug\netcoreapp3.1\Videostore.Entities.runtimeconfig.dev.json
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\bin\Debug\netcoreapp3.1\Videostore.Entities.dll
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\bin\Debug\netcoreapp3.1\Videostore.Entities.pdb
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\obj\Debug\netcoreapp3.1\Videostore.Entities.csprojAssemblyReference.cache
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\obj\Debug\netcoreapp3.1\Videostore.Entities.AssemblyInfoInputs.cache
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\obj\Debug\netcoreapp3.1\Videostore.Entities.AssemblyInfo.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore.Entities\obj\Debug\netcoreapp3.1\Videostore.Entities.csproj.CoreCompileInputs.cache

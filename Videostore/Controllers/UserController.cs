@@ -36,15 +36,17 @@ namespace Videostore.Controllers
         // GET: UserController
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: UserController/Details/5
-        public ActionResult Details(int id)
-        {
             var users = _userManager.Users;
             _logger.LogInformation("All users are listed!");
             return View(users);
+        }
+
+        // GET: UserController/Details/5
+        public async Task<ActionResult> Details(string id)
+        {
+            IdentityUser user = await _userManager.FindByIdAsync(id);
+
+            return View(user);
         }
 
         // GET: UserController/Create
@@ -95,48 +97,137 @@ namespace Videostore.Controllers
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(string id)
         {
-            return View();
+            IdentityUser user = await _userManager.FindByIdAsync(id);
+            var roles = _roleManager.Roles; 
+
+            if (user != null)
+            {
+                var userRoles = await _userManager.GetRolesAsync(user);
+
+                var userModel = new UserModel
+                {
+                    ID = user.Id,
+                    email = user.Email,
+                    roles = GetRoles(roles, userRoles[0])
+                };
+
+                var selectedRoleId = roles.Where(x => x.Name == userRoles[0]).SingleOrDefault().Id;
+                userModel.roleID = selectedRoleId;
+                return View(userModel);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(string id, string email, string password, string roleName)
         {
-            try
+            IdentityUser user = await _userManager.FindByIdAsync(id);
+
+            if (user != null)
             {
-                return RedirectToAction(nameof(Index));
+                var userRoles = await _userManager.GetRolesAsync(user);
+                var getUserOldRole = _roleManager.FindByNameAsync(userRoles[0]);
+
+                if (!string.IsNullOrEmpty(email))
+                {
+                    user.Email = email;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email cannot be empty!");
+                }
+
+                if (!string.IsNullOrEmpty(password))
+                {
+                    user.PasswordHash = _passwordHasher.HashPassword(user, password);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Password cannot be empty!");
+                }
+
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+                {
+                    IdentityResult result = await _userManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        await _userManager.RemoveFromRoleAsync(user, getUserOldRole.Result.Name); 
+                        await _userManager.AddToRoleAsync(user, roleName); 
+                        _logger.LogInformation("User updated!");
+                        _logger.LogInformation("User role added!");
+
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        Errors(result);
+                        _logger.LogError("Model state invalid!");
+                    }
+                }
             }
-            catch
+            else
             {
-                return View();
+                ModelState.AddModelError("", "User Not Found");
+                _logger.LogWarning("User not found!");
             }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
-            return View();
+            IdentityUser user = await _userManager.FindByIdAsync(id);
+            IdentityResult result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("User deleted!");
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                Errors(result);
+                _logger.LogInformation("An error occured while deleting a user!");
+            }
+            return View(nameof(Index), _userManager.Users);
         }
 
         // POST: UserController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Deleted(string id)
         {
-            try
+            IdentityUser user = await _userManager.FindByIdAsync(id);
+            if (user != null)
             {
-                return RedirectToAction(nameof(Index));
+                IdentityResult result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("User deleted!");
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    Errors(result);
+                    _logger.LogInformation("An error occured while deleting a user!");
+                }
             }
-            catch
+            else
             {
-                return View();
+                ModelState.AddModelError("", "User Not Found!");
+                _logger.LogWarning("User not found!");
             }
+            return View(nameof(Index), _userManager.Users);
         }
 
-
+        #region Helper methods
 
         private IQueryable<SelectListItem> GetRoles(IQueryable<IdentityRole> roles, string? currentRoleName)
         {
@@ -182,5 +273,16 @@ namespace Videostore.Controllers
             }
             return selectList.AsQueryable();
         }
+
+        private void Errors(IdentityResult result)
+        {
+            foreach (IdentityError error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+        }
+
+        #endregion
+
     }
 }
