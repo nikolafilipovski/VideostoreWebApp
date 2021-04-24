@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Videostore.Entities.Studio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.studioName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studioName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.studioID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.studioID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.studioID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

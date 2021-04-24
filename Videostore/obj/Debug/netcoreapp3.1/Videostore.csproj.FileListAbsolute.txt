@@ -362,6 +362,11 @@ C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debu
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Studio\Create.cshtml.g.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Studio\Delete.cshtml.g.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Studio\Details.cshtml.g.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Studio\Edit.cshtml.g.cs
+C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\Studio\Index.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\User\Delete.cshtml.g.cs
 C:\Users\Matej & Marko\Desktop\Code Academy\VideostoreWebApp\Videostore\obj\Debug\netcoreapp3.1\Razor\Views\User\Details.cshtml.g.cs
