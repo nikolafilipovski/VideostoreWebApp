@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,28 +12,57 @@ namespace Videostore.Repository
     public class StudioRepository : IStudioRepository
     {
         private readonly DataContext _context;
+        private readonly ILogger<StudioRepository> _logger;
 
-        public StudioRepository(DataContext context)
+        public StudioRepository(DataContext context, ILogger<StudioRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public void Add(Studio studio)
         {
-            _context.Studios.Add(studio);
-            _context.SaveChanges();
+            try
+            {
+                _context.Studios.Add(studio);
+                _context.SaveChanges();
+                _logger.LogInformation("New studio was created!");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("An error occurred while creating a studio" + " | " + exception);
+                throw;
+            }
         }
 
         public void Delete(Studio studio)
         {
-            _context.Studios.Remove(studio);
-            _context.SaveChanges();
+            try
+            {
+                _context.Studios.Remove(studio);
+                _context.SaveChanges();
+                _logger.LogInformation("Studio was deleted!");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("An error occurred while deleting a studio" + " | " + exception);
+                throw;
+            }
         }
 
         public void Edit(Studio studio)
         {
-            _context.Studios.Update(studio);
-            _context.SaveChanges();
+            try
+            {
+                _context.Studios.Update(studio);
+                _context.SaveChanges();
+                _logger.LogInformation("Studio was updated!");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("An error occurred while updating a studio" + " | " + exception);
+                throw;
+            }
         }
 
         public Studio GetStudioByID(int ID)

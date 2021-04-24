@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace Videostore.Controllers
     {
         private readonly IMovieService _movieService;
         private readonly IStudioService _studioService;
+        private readonly ILogger<MovieController> _logger;
 
-        public MovieController(IMovieService movieService, IStudioService studioService)
+        public MovieController(IMovieService movieService, IStudioService studioService, ILogger<MovieController> logger)
         {
             _movieService = movieService;
             _studioService = studioService;
+            _logger = logger;
         }
 
         // GET: MovieController
@@ -58,9 +61,14 @@ namespace Videostore.Controllers
             //movie.genre = model.genre;
             //movie.rating = model.rating;
             //movie.description = model.description;
-
-            _movieService.Add(movie);
-
+            if (movie != null)
+            {
+                if (!string.IsNullOrEmpty(movie.title) || !string.IsNullOrWhiteSpace(movie.title))
+                {
+                    _movieService.Add(movie);
+                    _logger.LogInformation("New movie was created!");
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 
@@ -81,7 +89,14 @@ namespace Videostore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Movie movie)
         {
-            _movieService.Edit(movie);
+            if (movie != null)
+            {
+                if (!string.IsNullOrEmpty(movie.title) || !string.IsNullOrWhiteSpace(movie.title))
+                {
+                    _movieService.Edit(movie);
+                    _logger.LogInformation("Movie was updated!");
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 
@@ -98,6 +113,7 @@ namespace Videostore.Controllers
         public ActionResult Delete(int id, Movie movie)
         {
             _movieService.Delete(movie);
+            _logger.LogInformation("Movie was deleted!");
 
             return RedirectToAction(nameof(Index));
         }

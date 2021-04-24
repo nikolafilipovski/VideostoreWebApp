@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,25 +12,54 @@ namespace Videostore.Service
     public class MovieService : IMovieService
     {
         private readonly IMovieRepository _movieRepository;
+        private readonly ILogger<MovieService> _logger;
 
-        public MovieService(IMovieRepository movieRepository)
+        public MovieService(IMovieRepository movieRepository, ILogger<MovieService> logger)
         {
             _movieRepository = movieRepository;
+            _logger = logger;
         }
 
         public void Add(Movie movie)
         {
-            _movieRepository.Add(movie);
+            try
+            {
+                _movieRepository.Add(movie);
+                _logger.LogInformation("New movie was created!");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("An error occurred while creating a movie" + " | " + exception);
+                throw;
+            }
         }
 
         public void Delete(Movie movie)
         {
-            _movieRepository.Delete(movie);
+            try
+            {
+                _movieRepository.Delete(movie);
+                _logger.LogInformation("Movie was deleted!");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("An error occurred while deleting a movie" + " | " + exception);
+                throw;
+            }
         }
 
         public void Edit(Movie movie)
         {
-            _movieRepository.Edit(movie);
+            try
+            {
+                _movieRepository.Edit(movie);
+                _logger.LogInformation("Movie was updated!");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("An error occurred while updating a movie" + " | " + exception);
+                throw;
+            }
         }
 
         public Movie GetMovieByID(int ID)

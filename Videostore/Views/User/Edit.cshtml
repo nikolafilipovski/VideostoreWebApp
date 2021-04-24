@@ -1,0 +1,43 @@
+﻿@model Videostore.Models.UserModel
+
+<h2>Edit User</h2>
+
+<hr />
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="name"></label>
+        <input asp-for="name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="password"></label>
+        <input asp-for="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Select Roles:</label>
+        @Html.DropDownListFor(x => Model.roleID, new SelectList(Model.roles, "Value", "Text", Model.roleID), htmlAttributes: new { @class = "form-control", id = "role" })
+    </div>
+
+    <input type="hidden" asp-for="roleName" />
+
+    <button type="submit" class="btn btn-block btn-success">
+        <i class="fas fa-save"></i> &nbsp; Edit
+    </button>
+</form>
+
+@section Scripts {
+    <script>$("#role").change(function () {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+            var textSelected = optionSelected.text();
+            $("#roleName").val(textSelected);
+
+            console.log($("#roleName").val(textSelected));
+            console.log(valueSelected);
+            console.log(textSelected);
+        });</script>
+}

@@ -30,12 +30,12 @@
 
 @foreach (var movie in Model)
 {
-     <div class="card h-100 mx-auto" style="max-width: 350px;">
+     <div class="card h-100 mx-auto" style="max-width: 300px;">
          <div class="image">
              <img src="" alt="" class="card-img-top" style="" />
          </div>
          <div class="card-body">
-             <div class="text-center d-flex flex-column justify-content-center" style="height:120px">
+             <div class="text-center d-flex flex-column justify-content-center" style="height:100px">
                  <h3 class="card-title w-100"><a class="text-dark" href="https://www.imdb.com">@Html.DisplayFor(modelItem => movie.title)</a></h3>
              </div>
              <hr />

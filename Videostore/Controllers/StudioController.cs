@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace Videostore.Controllers
     public class StudioController : Controller
     {
         private readonly IStudioService _studioService;
+        private readonly ILogger<StudioController> _logger;
 
-        public StudioController(IStudioService studioService)
+        public StudioController(IStudioService studioService, ILogger<StudioController> logger)
         {
             _studioService = studioService;
+            _logger = logger;
         }
 
         // GET: StudioController
